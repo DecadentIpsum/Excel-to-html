@@ -31,32 +31,37 @@ class ExcelRequestsImport extends React.Component {
   };
 
   render() {
-    console.log(this.state.rows);
     let dataExcel;
     if (typeof this.state.rows[1] !== "undefined") {
       dataExcel = this.state.rows[1];
     } else {
       dataExcel = {
-        1: "zaralis",
-        40: "",
+        1: "Γεώργιε, ξέχασες να ανεβάσεις κάποιο αρχείο!",
       };
+    }
+
+    function findOption(option) {
+      if (option === "" || option === "Not found") {
+        return `<span></span>`;
+      } else {
+        return `<li>${option}</li>`;
+      }
     }
 
     let description;
     if (typeof this.state.rows[1] !== "undefined") {
       description = `<p>${dataExcel["40"]}</p><ul>
-      <li>${dataExcel["42"]}</li>
-      <li>${dataExcel["43"]}</li>
-      <li>${dataExcel["44"]}</li>
-      <li>${dataExcel["45"]}</li>
-      <li>${dataExcel["46"]}</li>
-      <li>${dataExcel["47"]}</li>
-      <li>${dataExcel["48"]}</li>
-      <li>${dataExcel["49"]}</li>
-      <li>${dataExcel["50"]}</li>
-      <li>${dataExcel["51"]}</li>
-      <li>${dataExcel["52"]}</li>
-      <li>${dataExcel["53"]}</li>
+      ${findOption(dataExcel["42"])}
+      ${findOption(dataExcel["43"])}
+      ${findOption(dataExcel["44"])}
+      ${findOption(dataExcel["45"])}
+      ${findOption(dataExcel["46"])}
+      ${findOption(dataExcel["47"])}
+      ${findOption(dataExcel["48"])}
+      ${findOption(dataExcel["49"])}
+      ${findOption(dataExcel["51"])}
+      ${findOption(dataExcel["52"])}
+      ${findOption(dataExcel["53"])}
       </ul>`;
     } else {
       description = "";
