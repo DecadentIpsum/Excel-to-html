@@ -36,5 +36,5 @@ export default ExcelExampleExport;
 
 ExcelExampleExport.defaultProps = {
   filename: "",
-  worksheets: []
+  worksheets: [],
 };
